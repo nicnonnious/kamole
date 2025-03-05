@@ -15,4 +15,4 @@ This is the official website for Kamole Home Services, a home technology and ins
 ## How to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/nicnonnious/kamole.git
