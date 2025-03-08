@@ -355,6 +355,9 @@ nav ul li a:hover {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
@@ -366,10 +369,14 @@ nav ul li a:hover {
     height: 200px;
     background-size: cover;
     background-position: center;
+    flex-shrink: 0;
 }
 
 .service-content {
     padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-content h3 {
@@ -381,6 +388,7 @@ nav ul li a:hover {
 .service-content p {
     color: var(--gray);
     margin-bottom: 1rem;
+    flex-grow: 1;
 }
 
 .service-link {
@@ -389,6 +397,7 @@ nav ul li a:hover {
     font-weight: 600;
     text-decoration: none;
     position: relative;
+    margin-top: auto;
 }
 
 .service-link::after {
@@ -929,8 +938,15 @@ footer {
     }
 
     .service-card {
+        max-width: none;
+        width: 100%;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
         max-width: 400px;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .process-step {
