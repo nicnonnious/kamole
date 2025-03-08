@@ -20,6 +20,7 @@ def submit_form():
     phone = request.form['phone']
     service = request.form['service']
     message = request.form['message']
+    address = request.form['address']
 
     # Save to Supabase
     data = supabase.table('submissions').insert({
@@ -27,7 +28,8 @@ def submit_form():
         'email': email,
         'phone': phone,
         'service': service,
-        'message': message
+        'message': message,
+        'address': address
     }).execute()
 
     # Redirect to a thank-you page or show a message
