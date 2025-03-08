@@ -11,8 +11,8 @@ html {
 }
 
 :root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
+    --primary: #000080;
+    --primary-dark: #000066;
     --secondary: #f59e0b;
     --dark: #1e293b;
     --light: #f8fafc;
@@ -323,7 +323,7 @@ nav ul li a:hover {
 /* Why Choose Us Section */
 .why-choose-us {
     padding: 5rem 0;
-    background: linear-gradient(rgba(37, 99, 235, 0.05), rgba(37, 99, 235, 0.1));
+    background: linear-gradient(rgba(0, 0, 128, 0.05), rgba(0, 0, 128, 0.1));
 }
 
 .features-grid {
