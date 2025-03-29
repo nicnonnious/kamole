@@ -1197,3 +1197,95 @@ footer {
         font-size: 0.85rem;
     }
 }
+
+/* Industry Partners Section */
+.industry-partners {
+    padding: 80px 0;
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.partner-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16/9;
+}
+
+.partner-card img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+/* Specific rule for Modani logo */
+.partner-card img[alt="Modani Logo"] {
+    max-width: 95%;
+    max-height: 95%;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.partner-card:hover img {
+    filter: grayscale(0%);
+}
+
+.partner-overlay {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.partner-card:hover .partner-overlay {
+    bottom: 0;
+    opacity: 1;
+}
+
+.partner-overlay p {
+    color: #ffffff;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Media Queries for Industry Partners */
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .partner-card {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+}
