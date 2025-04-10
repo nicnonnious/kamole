@@ -519,8 +519,7 @@ nav ul li a:hover {
 
 /* Video Container Styles */
 .video-container {
-    margin-top: 4rem;
-    text-align: center;
+    margin: 40px 0;
 }
 
 .video-container h3 {
@@ -531,13 +530,11 @@ nav ul li a:hover {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
     max-width: 100%;
-    margin: 2rem auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #f5f5f5;
 }
 
 .video-wrapper iframe {
@@ -546,7 +543,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 8px;
+    border: none;
 }
 
 .testimonial-card {
@@ -1026,6 +1023,15 @@ footer {
     .nav-footer .social-links {
         justify-content: center;
     }
+
+    .video-container {
+        margin: 20px 0;
+    }
+    
+    .video-wrapper {
+        margin: 0 -15px;
+        border-radius: 0;
+    }
 }
 
 /* Contact Section */
@@ -1288,4 +1294,51 @@ footer {
     .partners-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Loading Animation */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--light-gray);
+    border-top: 3px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Fade-in Animation */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-in-section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }

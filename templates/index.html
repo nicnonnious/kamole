@@ -9,6 +9,11 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="header-container container">
@@ -83,7 +88,7 @@
                     <div class="service-image" style="background-image: url('../static/img/furnitureassembly.jpg');"></div>
                     <div class="service-content">
                         <h3>Furniture & Cabinet Assembly</h3>
-                        <p>Starting from $99.</p>
+                        <p>Starting from $300.</p>
                         <a href="#contact" class="service-link">Request Service</a>
                     </div>
                 </div>
@@ -99,7 +104,7 @@
                     <div class="service-image" style="background-image: url('../static/img/blinds.jpg');"></div>
                     <div class="service-content">
                         <h3>Curtain and Blinds Installation</h3>
-                        <p>Starting from $100.</p>
+                        <p>Starting from $85.</p>
                         <a href="#contact" class="service-link">Request Service</a>
                     </div>
                 </div>
@@ -107,7 +112,7 @@
                     <div class="service-image" style="background-image: url('../static/img/garagedoor.jpg');"></div>
                     <div class="service-content">
                         <h3>Garage Door & Security Systems</h3>
-                        <p>Starting from $120.</p>
+                        <p>Starting from $179.</p>
                         <a href="#contact" class="service-link">Request Service</a>
                     </div>
                 </div>
@@ -139,7 +144,7 @@
                     <div class="service-image" style="background-image: url('../static/img/irrigation.jpg');"></div>
                     <div class="service-content">
                         <h3>Drip Irrigation Systems</h3>
-                        <p>Starting from $499.</p>
+                        <p>Starting from $399.</p>
                         <a href="#contact" class="service-link">Request Service</a>
                     </div>
                 </div>
@@ -155,7 +160,7 @@
                     <div class="service-image" style="background-image: url('../static/img/office.jpg');"></div>
                     <div class="service-content">
                         <h3>Office Cubic Setup</h3>
-                        <p>Starting from $200.</p>
+                        <p>Starting from $299.</p>
                         <a href="#contact" class="service-link">Request Service</a>
                     </div>
                 </div>
@@ -171,7 +176,7 @@
                     <div class="service-image" style="background-image: url('../static/img/demoremodel.jpg');"></div>
                     <div class="service-content">
                         <h3>Demo/Remodeling Project</h3>
-                        <p>Starting from $500.</p>
+                        <p>Starting from $850.</p>
                         <a href="#contact" class="service-link">Request Service</a>
                     </div>
                 </div>
@@ -312,11 +317,14 @@
                 <h3>See Our Work in Action</h3>
                 <div class="video-wrapper">
                     <iframe 
-                        src="https://www.youtube.com/embed/HwGMyoLaXCw" 
+                        src="https://www.youtube-nocookie.com/embed/HwGMyoLaXCw?playsinline=1&rel=0&modestbranding=1"
                         title="Kamole Home Services Pro YouTube Channel"
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
+                        width="100%"
+                        height="315"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy">
                     </iframe>
                 </div>
             </div>
@@ -550,5 +558,45 @@
 
     <!-- Link to external JavaScript file -->
     <script src="../static/script.js"></script>
+    <script>
+        // Loading animation
+        window.addEventListener('load', () => {
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            loadingOverlay.classList.add('fade-out');
+            setTimeout(() => {
+                loadingOverlay.style.display = 'none';
+            }, 500);
+        });
+
+        // Enhanced mobile menu functionality
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu-toggle').checked = false;
+                document.querySelector('.mobile-nav').style.display = 'none';
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('fade-in-section');
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
