@@ -20,10 +20,12 @@
     <!-- Header -->
     <header>
         <div class="header-container container">
-            <div class="logo">
-                <img src="../static/img/logo.png" alt="Kamole Home Services Logo" class="logo-icon">
-                Kamole&nbsp;<span>Home Services</span>
-            </div>
+            <a href="#top" class="logo-link" onclick="scrollToTop(event)">
+                <div class="logo">
+                    <img src="../static/img/logo.png" alt="Kamole Home Services Logo" class="logo-icon">
+                    Kamole&nbsp;<span>Home Services</span>
+                </div>
+            </a>
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="hamburger-menu">
                 <span class="bar"></span>
@@ -608,12 +610,33 @@
             }, 500);
         });
 
+        // Scroll to top function
+        function scrollToTop(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
         // Enhanced mobile menu functionality
+        const isMobile = () => window.innerWidth <= 768;
+        
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', () => {
-                document.getElementById('menu-toggle').checked = false;
-                document.querySelector('.mobile-nav').style.display = 'none';
+                if (isMobile()) {
+                    document.getElementById('menu-toggle').checked = false;
+                    document.querySelector('.mobile-nav').style.display = 'none';
+                }
             });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const mobileNav = document.querySelector('.mobile-nav');
+            if (!isMobile()) {
+                mobileNav.style.display = 'flex';
+            }
         });
 
         // Intersection Observer for fade-in animations

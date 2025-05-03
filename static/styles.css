@@ -4,10 +4,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 60px; /* Add this to account for fixed header */
 }
 
 :root {
@@ -18,12 +20,18 @@ html {
     --light: #f8fafc;
     --gray: #64748b;
     --light-gray: #e2e8f0;
+    --header-height: 100px;
 }
 
 body {
     background-color: var(--light);
     color: var(--dark);
     line-height: 1.6;
+}
+
+/* Add this for all sections */
+section {
+    scroll-margin-top: var(--header-height);
 }
 
 .container {
@@ -46,6 +54,18 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.5rem;
+    height: var(--header-height);
+}
+
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
 }
 
 .logo {
@@ -105,7 +125,7 @@ header {
 
 @media (min-width: 769px) {
     .mobile-nav {
-        display: flex;
+        display: flex !important; /* Force display flex for desktop */
     }
 
     .mobile-nav ul {
